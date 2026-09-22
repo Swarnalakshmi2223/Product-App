@@ -1,0 +1,100 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: "Inter", sans-serif;
+  background: #080909;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* =========================================
+   ROOT
+========================================= */
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* =========================================
+   SELECTION
+========================================= */
+
+::selection {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080909;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+
+/* =========================================
+   INPUT
+========================================= */
+
+input,
+button {
+  font-family: inherit;
+}
+
+/* =========================================
+   IMAGE
+========================================= */
+
+img {
+  max-width: 100%;
+}
+
+/* =========================================
+   LINE CLAMP
+========================================= */
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+  }
+}
