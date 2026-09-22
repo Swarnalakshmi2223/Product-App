@@ -8,7 +8,7 @@ import {
   FaCheck,
 } from "react-icons/fa";
 
-import axios from "axios";
+import api from "../api/axios";
 
 function AddProduct() {
   const [product, setProduct] = useState({
@@ -88,8 +88,8 @@ function AddProduct() {
     }
 
     try {
-      await axios.post(
-        "http://localhost:3000/products",
+      await api.post(
+        "/products",
         {
           title: product.title.trim(),
           image: product.image.trim(),

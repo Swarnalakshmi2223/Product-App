@@ -1,5 +1,6 @@
 const express = require("express");
 const Product = require("../models/Product");
+const verifyToken = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
@@ -17,8 +18,8 @@ router.get("/", async (req, res) => {
     }
 });
 
-// POST product
-router.post("/", async (req, res) => {
+// POST product (Protected)
+router.post("/", verifyToken, async (req, res) => {
     try {
         const product = new Product(req.body);
 
@@ -33,8 +34,8 @@ router.post("/", async (req, res) => {
     }
 });
 
-// PUT product
-router.put("/:id", async (req, res) => {
+// PUT product (Protected)
+router.put("/:id", verifyToken, async (req, res) => {
     try {
         const updatedProduct = await Product.findByIdAndUpdate(
             req.params.id,
@@ -60,8 +61,8 @@ router.put("/:id", async (req, res) => {
     }
 });
 
-// DELETE product
-router.delete("/:id", async (req, res) => {
+// DELETE product (Protected)
+router.delete("/:id", verifyToken, async (req, res) => {
     try {
         await Product.findByIdAndDelete(req.params.id);
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import {
   FaUser,
@@ -9,7 +9,7 @@ import {
   FaEyeSlash,
 } from "react-icons/fa";
 
-import axios from "axios";
+import api from "../api/axios";
 
 function Login() {
   const navigate = useNavigate();
@@ -80,8 +80,8 @@ function Login() {
     try {
       setLoading(true);
 
-      const response = await axios.post(
-        "http://localhost:3000/auth/login",
+      const response = await api.post(
+        "/auth/login",
         {
           email: loginData.email.trim(),
           password: loginData.password,
@@ -509,9 +509,19 @@ function Login() {
               FOOTER
           ================================= */}
 
-          <div className="mt-7 text-center">
+          <div className="mt-7 text-center border-t border-white/10 pt-5">
 
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-400">
+              Don't have an account?{" "}
+              <Link
+                to="/register"
+                className="text-white font-semibold hover:underline transition-all"
+              >
+                Create Account
+              </Link>
+            </p>
+
+            <p className="text-xs text-gray-500 mt-2">
               Secure access to your EliteStore account
             </p>
 

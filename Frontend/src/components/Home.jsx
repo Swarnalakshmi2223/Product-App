@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import api from "../api/axios";
 
 import {
   FaSearch,
@@ -31,9 +32,7 @@ function Home() {
         let response;
 
         if (source === "mongodb") {
-          response = await axios.get(
-            "http://localhost:3000/products"
-          );
+          response = await api.get("/products");
         } else {
           response = await axios.get(
             "https://fakestoreapi.com/products"
