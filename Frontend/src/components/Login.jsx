@@ -81,7 +81,7 @@ function Login() {
       setLoading(true);
 
       const response = await api.post(
-        "/auth/login",
+        "/api/auth/login",
         {
           email: loginData.email.trim(),
           password: loginData.password,

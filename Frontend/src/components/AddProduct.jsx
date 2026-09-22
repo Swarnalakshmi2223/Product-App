@@ -89,7 +89,7 @@ function AddProduct() {
 
     try {
       await api.post(
-        "/products",
+        "/api/products",
         {
           title: product.title.trim(),
           image: product.image.trim(),
